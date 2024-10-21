@@ -16,8 +16,21 @@ public class OrdenacaoNumeros {
     }
     public List<Numeros> ordemCrescente(){
         List<Numeros> numerosCrescentes = new ArrayList<>(numerosList);
-        Collections.sort(numerosCrescentes);
-        return numerosCrescentes;
+        if (!numerosList.isEmpty()) {
+            Collections.sort(numerosCrescentes);
+            return numerosCrescentes;
+        }else{
+            throw  new RuntimeException("A lista está vazia!");
+        }
+    }
+    public List<Numeros> ordemDecrescente(){
+        List<Numeros> numerosDecrescentes = new ArrayList<>(numerosList);
+        if (!numerosList.isEmpty()){
+            numerosDecrescentes.sort(Collections.reverseOrder());
+            return numerosDecrescentes;
+        }else{
+            throw  new RuntimeException("A lista está vazia!");
+        }
     }
 
     public static void main(String[] args) {
@@ -31,6 +44,11 @@ public class OrdenacaoNumeros {
         ordenacaoNumeros.adicionarNumero(5);
         ordenacaoNumeros.adicionarNumero(6);
 
+        System.out.println("Números em ordem Crescente:");
         System.out.println(ordenacaoNumeros.ordemCrescente());
+
+        System.out.println("Números em ordem Decrescente:");
+        System.out.println(ordenacaoNumeros.ordemDecrescente());
+
     }
 }

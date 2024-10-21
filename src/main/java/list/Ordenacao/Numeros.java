@@ -14,9 +14,9 @@ public class Numeros implements Comparable<Numeros>{
 
     @Override
     public String toString() {
-        return "Numeros{" +
-                "numero=" + numero +
-                '}';
+        return "\n{" +
+                " numero=" + numero +
+                "}";
     }
 
     @Override
