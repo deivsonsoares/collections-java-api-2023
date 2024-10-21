@@ -1,5 +1,7 @@
 package main.java.list.Pesquisa;
 
+import java.net.StandardSocketOptions;
+import java.nio.file.FileSystemNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,8 @@ public class CatalogoLivros {
     //atributo
     private List<Livro> livroList;
 
-    public CatalogoLivros() { this.livroList = new ArrayList<>();
+    public CatalogoLivros() {
+        this.livroList = new ArrayList<>();
     }
 
     public void adicionarLivro(String titulo, String autor, int anoPublicacao){
@@ -47,5 +50,18 @@ public class CatalogoLivros {
             }
         }
         return livroPorTitulo;
+    }
+
+    public static void main(String[] args) {
+        CatalogoLivros catalogoLivros = new CatalogoLivros();
+        catalogoLivros.adicionarLivro("Livro 1", "Autor 1", 2020);
+        catalogoLivros.adicionarLivro("Livro 1", "Autor 2", 2021);
+        catalogoLivros.adicionarLivro("Livro 2", "Autor 2", 2022);
+        catalogoLivros.adicionarLivro("Livro 3", "Autor 3", 2023);
+        catalogoLivros.adicionarLivro("Livro 4", "Autor 4", 1994);
+
+        //System.out.println(catalogoLivros.pesquisarPorAutor("Autor 2"));
+       // System.out.println(catalogoLivros.pesquisaPorInertvaloAnos(2020, 2022));
+        System.out.println(catalogoLivros.pesquisarPorTitulo("Livro 1"));
     }
 }
